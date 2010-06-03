@@ -1,45 +1,46 @@
-#index.current
-  .toolbar
-    %h1 Factual Demo
-  %ul.links
-    %li.arrow
-      %a{ :href => '#users' } Users
-      %small.counter= @users.count
-    %li.arrow
-      %a{ :href => '#signup' } Signup
-
-#users
-  .toolbar
-    %h1 Users
-    %a.back{ :href => '#index' } Back
-  %ul.edgetoedge
-    - @users.each do |u|
-      %li
-        %a= u[:username]
-
-#signup
-  .toolbar
-    %h1 Register a new account
-    %a.back{ :href => '#index' } Back
-  %form{ :action => '/signup', :method => 'POST' }
-    %ul.form
-      %li
-        %input{ :name => 'username', :placeholder => 'username', :type => 'text' }/
-      %li
-        %input{ :name => 'password', :placeholder => 'password', :type => 'password' }/
-      %li
-        %input{ :name => 'password_confirmation', :placeholder => 'verify password', :type => 'password' }/
-      %li
-        %input{ :name => 'over_21', :title => 'I am at least 21 years old', :type => 'checkbox' }/
-      %li
-        %input{ :name => 'terms_of_service', :title => 'I accept the Factual', :type => 'checkbox' }/
+#jqt
+  #index.current
+    .toolbar
+      %h1 Factual Demo
+    %ul.links
       %li.arrow
-        %a{ :href => '#terms_of_service' } Terms of Service
-    %a.submit.whiteButton{ :href => '#', :style => "margin:0 10px;color:rgba(0,0,0,.9)" } Done
+        %a{ :href => '#users' } Users
+        %small.counter= @users.count
+      %li.arrow
+        %a{ :href => '#signup' } Signup
 
-#terms_of_service
-  .toolbar
-    %h1 Terms of Service
-    %a.back{ :href => '#' } Back
-  %p
-    All legal text as required by our attorney
+  #users
+    .toolbar
+      %h1 Users
+      %a.back{ :href => '#index' } Back
+    %ul.edgetoedge
+      - @users.each do |u|
+        %li
+          %a= u[:username]
+
+  #signup
+    .toolbar
+      %h1 Register a new account
+      %a.back{ :href => '#index' } Back
+    %form{ :action => '/signup', :method => 'POST' }
+      %ul.form
+        %li
+          %input{ :name => 'username', :placeholder => 'username', :type => 'text' }/
+        %li
+          %input{ :name => 'password', :placeholder => 'password', :type => 'password' }/
+        %li
+          %input{ :name => 'password_confirmation', :placeholder => 'verify password', :type => 'password' }/
+        %li
+          %input{ :name => 'over_21', :title => 'I am at least 21 years old', :type => 'checkbox' }/
+        %li
+          %input{ :name => 'terms_of_service', :title => 'I accept the Factual', :type => 'checkbox' }/
+        %li.arrow
+          %a{ :href => '#terms_of_service' } Terms of Service
+      %a.submit.whiteButton{ :href => '#', :style => "margin:0 10px;color:rgba(0,0,0,.9)" } Done
+
+  #terms_of_service
+    .toolbar
+      %h1 Terms of Service
+      %a.back{ :href => '#' } Back
+    %p
+      All legal text as required by our attorney
