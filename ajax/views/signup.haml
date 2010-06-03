@@ -1,0 +1,19 @@
+%div
+  .toolbar
+    %h1 Register a new account
+    %a.back{ :href => '#index' } Back
+  %form{ :action => '/signup', :method => 'POST' }
+    %ul.form
+      %li{ :class => "#{"error" if @errors[:username]}" }
+        %input{ :name => 'username', :placeholder => 'username', :type => 'text' }/
+      %li{ :class => "#{"error" if @errors[:password]}" }
+        %input{ :name => 'password', :placeholder => 'password', :type => 'password' }/
+      %li{ :class => "#{"error" if @errors[:password_confirmation]}" }
+        %input{ :name => 'password_confirmation', :placeholder => 'verify password', :type => 'password' }/
+      %li{ :class => "#{"error" if @errors[:statements]}" }
+        %input{ :name => 'over_21', :title => 'I am at least 21 years old', :type => 'checkbox' }/
+      %li{ :class => "#{"error" if @errors[:statements]}" }
+        %input{ :name => 'terms_of_service', :title => 'I accept the Factual', :type => 'checkbox' }/
+      %li.arrow
+        %a{ :href => '#terms_of_service' } Terms of Service
+    %a.submit.whiteButton{ :href => '#', :style => "margin:0 10px;color:rgba(0,0,0,.9)" } Done

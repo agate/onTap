@@ -1,0 +1,37 @@
+- @errors ||= {}
+%h1 Register a new account:
+%form{ :method => 'post' }
+  %label username:
+  - if @errors[:username]
+    %br/
+    %span.error=@errors[:username]
+  %br/
+  %input{ :name => 'username' }/
+  %br/
+  %label password:
+  - if @errors[:password]
+    %br/
+    %span.error=@errors[:password]
+  %br/
+  %input{ :name => 'password', :type => 'password' }/
+  %br/
+  %label verify password:
+  - if @errors[:password_confirmation]
+    %br/
+    %span.error=@errors[:password_confirmation]
+  %br/
+  %input{ :name => 'password_confirmation', :type => 'password' }/
+  %br/
+  %input{ :name => 'over_21', :type => 'checkbox' }/
+  I am at least 21 years old.
+  %br/
+  %input{ :name => 'terms_of_service', :type => 'checkbox' }/
+  I accept the Factual
+  %a{ :href => '/terms_of_service' } Terms of Service
+  - if @errors[:statements]
+    %br/
+    %span.error=@errors[:statements]
+  %br/
+  %br/
+  %input{ :type => 'submit', :value => 'done' }
+  %input{ :type => 'reset', :value => 'reset' }
