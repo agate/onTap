@@ -1,0 +1,25 @@
+#success
+  .toolbar
+    %h1 Success
+    %a.back{ :href => '#index' } Back
+  .message
+    Thanks for you registion.
+
+#index
+  .toolbar
+    %h1 Factual Demo
+  %ul.links
+    %li.arrow
+      %a{ :href => '#users' } Users
+      %small.counter= @users.count
+    %li.arrow
+      %a{ :href => '#signup' } Signup
+
+#users
+  .toolbar
+    %h1 Users
+    %a.back{ :href => '#index' } Back
+  %ul.edgetoedge
+    - @users.each do |u|
+      %li
+        %a= u[:username]
