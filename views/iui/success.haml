@@ -1,25 +1,28 @@
-#success
-  .toolbar
-    %h1 Success
-    %a.back{ :href => '#index' } Back
-  .message
-    Thanks for you registion.
+#success.panel{ :title => 'Factual Demo' }
+  %h2 Thanks for you registion.
 
-#index
-  .toolbar
-    %h1 Factual Demo
-  %ul.links
-    %li.arrow
-      %a{ :href => '#users' } Users
-      %small.counter= @users.count
-    %li.arrow
-      %a{ :href => '#signup' } Signup
+%ul#users{ :title => 'Users' }
+  - @users.each do |u|
+    %li= u[:username]
 
-#users
-  .toolbar
-    %h1 Users
-    %a.back{ :href => '#index' } Back
-  %ul.edgetoedge
-    - @users.each do |u|
-      %li
-        %a= u[:username]
+%form#signup.panel{ :title => 'Signup', :action => '/iui/signup', :method => 'POST' }
+  %h2 Register a new account
+  %fieldset
+    .row
+      %label username
+      %input{ :name => 'username', :type => 'text' }/
+    .row
+      %label password
+      %input{ :name => 'password', :type => 'password' }/
+    .row
+      %label repassword
+      %input{ :name => 'password_confirmation', :type => 'password' }/
+    .row
+      %label I am at least 21 years old
+      %input{ :name => 'over_21', :type => 'checkbox' }/
+    .row
+      %label
+        I accept the Factual
+        %a{ :href => '#terms_of_service' } Terms of Service
+      %input{ :name => 'terms_of_service', :type => 'checkbox' }/
+  %a.whiteButton{ :href => '#', :type => 'submit' } Done

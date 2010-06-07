@@ -10,8 +10,7 @@
 
 %ul#users{ :title => 'Users' }
   - @users.each do |u|
-    %li
-      %a= u[:username]
+    %li= u[:username]
 
 %form#signup.panel{ :title => 'Signup', :action => '/iui/signup', :method => 'POST' }
   %h2 Register a new account
