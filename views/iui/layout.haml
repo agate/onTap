@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{ 'http-equiv' => 'Content-Type', :content => 'text/html'}/
+    %meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" }/
+    %meta{ :name => "apple-mobile-web-app-capable", :content => "yes" }/
+    -#%link{ :rel => "icon", :type => "image/png", :href => "TODO" }
+    -#%link{ :rel => "apple-touch-icon", :href => "TODO" }
+    %style{ :type => "text/css", :media => "screen" } @import "/css/iui.css";
+    %style{ :type => "text/css", :media => "screen" } @import "/css/iui_default_theme/default-theme.css";
+    %script{ :type => "application/x-javascript", :src => "/js/iui.js" }
+    %style{ :type => "text/css", :media => "screen" }
+      :sass
+        h2.error
+          :color red
+  %body
+    = yield
