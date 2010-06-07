@@ -1,17 +1,22 @@
-require 'rubygems'
 require 'sinatra'
 require 'sequel'
 
-DB = Sequel.sqlite
-DB.create_table :users do
-  primary_key :id
-  String      :username
-  String      :password
-  Boolean     :over_21
-  Boolean     :terms_of_service
+err = nil
+begin
+  DB = Sequel.sqlite
+  DB.create_table :users do
+    primary_key :id
+    String      :username
+    String      :password
+    Boolean     :over_21
+    Boolean     :terms_of_service
+  end
+rescue Exception => e
+  err = e.inspect
 end
 
 get '/' do
+  @eeee = err
   haml :index
 end
 
